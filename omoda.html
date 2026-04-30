@@ -7,7 +7,7 @@
   <meta name="description" content="Super Hybride Auto Rechargeable 224 CH · 1 000 km d'autonomie. À partir de 265 000 DH. Remise 20 000 DH jusqu'au 30 Juin 2026.">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d0d0d; color: #fff; min-height: 100vh; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d0d0d; color: #fff; min-height: 100vh; scroll-behavior: smooth; }
 
     header {
       position: sticky; top: 0; z-index: 10;
@@ -57,6 +57,34 @@
     .new-price { font-size: clamp(28px, 7vw, 40px); font-weight: 900; white-space: nowrap; }
     .new-price span { font-size: 0.55em; font-weight: 600; color: rgba(255,255,255,0.6); }
     .remise { font-size: 13px; font-weight: 600; color: #c8a84b; }
+
+    .cta-scroll {
+      display: none;
+      width: 100%; margin-top: 18px;
+      background: #c8a84b; color: #0d0d0d;
+      font-weight: 800; font-size: 15px;
+      padding: 14px 20px; border: none; border-radius: 12px;
+      cursor: pointer; text-align: center; text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .cta-scroll:hover, .cta-scroll:active { background: #d6b864; transform: translateY(-1px); }
+    .cta-scroll svg { display: inline-block; vertical-align: -3px; margin-left: 6px; }
+    @media (max-width: 899px) { .cta-scroll { display: block; } }
+
+    .cta-sticky {
+      display: none;
+      position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 50;
+      background: #c8a84b; color: #0d0d0d;
+      font-weight: 800; font-size: 15px;
+      padding: 15px 20px; border: none; border-radius: 14px;
+      cursor: pointer; text-align: center; text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 4px 10px rgba(200,168,75,0.3);
+      letter-spacing: 0.02em;
+      animation: slideUp 0.4s ease-out;
+    }
+    @keyframes slideUp { from { transform: translateY(120%); } to { transform: translateY(0); } }
+    @media (max-width: 899px) { .cta-sticky.visible { display: block; } }
 
     .specs-mobile { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
     @media (min-width: 900px) { .specs-mobile { display: none; } }
@@ -108,6 +136,10 @@
             <span class="new-price">265 000 <span>DH</span></span>
           </div>
           <p class="remise">Remise 20 000 DH · Hors frais d'immatriculation</p>
+          <a href="#calendar" class="cta-scroll">
+            Réservez votre créneau
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
         </div>
 
         <div class="specs-mobile">
@@ -116,7 +148,7 @@
           <div class="spec"><div class="spec-icon">🔋</div><div class="spec-label">Hybride</div><div class="spec-value">Auto Recharg.</div></div>
         </div>
 
-        <div class="calendar-card">
+        <div class="calendar-card" id="calendar">
           <div class="calendar-header">
             <h2>Planifier un essai routier</h2>
             <p>Notre équipe CRC confirme sous 24h</p>
@@ -133,6 +165,25 @@
       </div>
     </div>
   </div>
+  <a href="#calendar" class="cta-sticky" id="ctaSticky">Réservez votre créneau →</a>
   <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+  <script>
+    (function() {
+      const sticky = document.getElementById('ctaSticky');
+      const calendar = document.getElementById('calendar');
+      if (!sticky || !calendar) return;
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.target === calendar) {
+            sticky.classList.toggle('visible', !e.isIntersecting);
+          }
+        });
+      }, { threshold: 0.05 });
+      obs.observe(calendar);
+      window.addEventListener('scroll', () => {
+        if (window.scrollY < 200) sticky.classList.remove('visible');
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
