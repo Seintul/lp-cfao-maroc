@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci — Jaecoo J7 SHS</title>
+  <meta name="description" content="Votre demande a bien été enregistrée. L'équipe CFAO vous contactera sous 24h.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d0d0d; color: #fff; min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center; padding: 12px 16px;
+      gap: 10px;
+    }
+    header .brand { font-weight: 900; font-size: 15px; letter-spacing: 0.15em; color: #fff; }
+    header .sep { color: rgba(255,255,255,0.2); }
+    header .by { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 0.12em; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 4px; }
+
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 32px 16px; }
+
+    .card {
+      max-width: 560px; width: 100%;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 22px; padding: 40px 28px; text-align: center;
+    }
+
+    .check {
+      width: 72px; height: 72px; margin: 0 auto 20px;
+      background: rgba(200,168,75,0.15); border: 2px solid rgba(200,168,75,0.4);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes pop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+    .check svg { width: 36px; height: 36px; stroke: #c8a84b; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    h1 { font-size: clamp(24px, 5vw, 32px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px; }
+    .gold { color: #c8a84b; }
+
+    .subtitle { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.5; margin-bottom: 28px; }
+
+    .info-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px; text-align: left;
+      margin-bottom: 10px;
+    }
+    .info-icon { font-size: 22px; flex-shrink: 0; }
+    .info-text { flex: 1; min-width: 0; }
+    .info-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+    .info-value { font-size: 14px; font-weight: 600; color: #fff; }
+
+    .car-summary {
+      margin-top: 24px; padding: 16px; border-radius: 14px;
+      background: linear-gradient(135deg, rgba(200,168,75,0.1), rgba(200,168,75,0.02));
+      border: 1px solid rgba(200,168,75,0.2);
+    }
+    .car-summary .name { font-size: 16px; font-weight: 800; letter-spacing: 0.02em; }
+    .car-summary .price { font-size: 22px; font-weight: 900; margin-top: 4px; }
+    .car-summary .price span { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5); margin-left: 4px; }
+    .car-summary .promo { font-size: 11px; color: #c8a84b; font-weight: 600; margin-top: 4px; }
+
+    footer { text-align: center; font-size: 11px; color: rgba(255,255,255,0.13); padding: 20px 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">OMODA</span>
+    <span class="sep">|</span>
+    <span class="brand">JAECOO</span>
+    <span class="by">by CFAO</span>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="check">
+        <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"></polyline></svg>
+      </div>
+
+      <h1>Merci ! Votre RDV est <span class="gold">confirmé</span></h1>
+      <p class="subtitle">Notre équipe CRC vous contactera dans les <strong>24 heures</strong> pour finaliser votre essai routier.</p>
+
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div class="info-text">
+          <div class="info-label">Prochaine étape</div>
+          <div class="info-value">Appel de confirmation depuis le CRC CFAO</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🚗</div>
+        <div class="info-text">
+          <div class="info-label">Essai routier</div>
+          <div class="info-value">Showroom CFAO Casablanca / Rabat / Marrakech</div>
+        </div>
+      </div>
+
+      <div class="car-summary">
+        <div class="name">JAECOO J7 <span class="gold">SHS</span></div>
+        <div class="price">339 000 <span>DH</span></div>
+        <div class="promo">Remise 20 000 DH · Valable jusqu'au 30 Juin 2026</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>CFAO Morocco · Vous recevrez bientôt un SMS et un email de confirmation</footer>
+</body>
+</html>
