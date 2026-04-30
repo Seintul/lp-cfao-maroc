@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OMODA 5 SHS — Offre Exclusive CFAO</title>
   <meta name="description" content="Super Hybride Auto Rechargeable 224 CH · 1 000 km d'autonomie. À partir de 265 000 DH. Remise 20 000 DH jusqu'au 30 Juin 2026.">
+  <link rel="stylesheet" href="/booking.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -154,11 +155,10 @@
             <h2>Planifier un essai routier</h2>
             <p>Notre équipe CRC confirme sous 24h</p>
           </div>
-          <div class="calendar-body">
-            <iframe
-              src="https://link.clientx.ai/widget/booking/OfyFGGBYVm0zjS5nYDnp?backgroundColor=%23191919FF&primaryColor=%23C8A84BFF&buttonText=R%C3%A9servez+votre+cr%C3%A9neau&showCalendarTitle=false&showCalendarDescription=false&showCalendarDetails=false&default=false&language=fr"
-              id="OfyFGGBYVm0zjS5nYDnp_widget"
-              title="Réserver un RDV OMODA 5"></iframe>
+          <div id="booking-widget">
+            <div id="step-date" class="bk-step active"></div>
+            <div id="step-time" class="bk-step"></div>
+            <div id="step-form" class="bk-step"></div>
           </div>
         </div>
 
@@ -167,7 +167,8 @@
     </div>
   </div>
   <a href="#calendar" class="cta-sticky" id="ctaSticky">Réservez votre créneau →</a>
-  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+  <script>window.BOOKING_CONFIG = { modele: 'OMODA 5 SHS', redirectMerci: '/omoda/merci' };</script>
+  <script src="/booking.js"></script>
   <script>
     (function() {
       const sticky = document.getElementById('ctaSticky');

@@ -1,0 +1,111 @@
+/* ── Custom French booking widget ─────────────────────── */
+.bk-step { display: none; padding: 18px 20px; }
+.bk-step.active { display: block; }
+
+.bk-h { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.bk-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
+
+.bk-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; color: rgba(255,255,255,0.55);
+  background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 12px;
+}
+.bk-back:hover { color: #c8a84b; }
+
+/* ── Date picker ────────────────────────────────────────── */
+.bk-month-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.bk-month-nav button {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: #fff; font-size: 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.bk-month-nav button:hover:not(:disabled) { background: #c8a84b; color: #0d0d0d; border-color: #c8a84b; }
+.bk-month-nav button:disabled { opacity: 0.3; cursor: not-allowed; }
+.bk-month-nav .bk-month-label { font-weight: 600; font-size: 14px; text-transform: capitalize; }
+
+.bk-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
+  margin-bottom: 8px;
+}
+.bk-grid .bk-dow {
+  text-align: center; font-size: 10px; font-weight: 600;
+  color: rgba(255,255,255,0.4); text-transform: uppercase;
+  padding: 6px 0;
+}
+.bk-grid .bk-day {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 500; border-radius: 8px;
+  cursor: pointer; transition: all 0.15s;
+  border: 1px solid transparent;
+}
+.bk-grid .bk-day.empty { cursor: default; }
+.bk-grid .bk-day.disabled { color: rgba(255,255,255,0.15); cursor: not-allowed; }
+.bk-grid .bk-day.available {
+  color: rgba(255,255,255,0.85);
+  border-color: rgba(200,168,75,0.25);
+  background: rgba(200,168,75,0.05);
+}
+.bk-grid .bk-day.available:hover {
+  background: rgba(200,168,75,0.2); border-color: #c8a84b; color: #fff;
+}
+.bk-grid .bk-day.selected { background: #c8a84b; color: #0d0d0d; border-color: #c8a84b; }
+
+/* ── Time slots ─────────────────────────────────────────── */
+.bk-slots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.bk-slots .bk-slot {
+  padding: 12px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(200,168,75,0.3);
+  color: #fff; font-size: 14px; font-weight: 600; text-align: center;
+  border-radius: 10px; cursor: pointer; transition: all 0.15s;
+}
+.bk-slots .bk-slot:hover { background: rgba(200,168,75,0.15); border-color: #c8a84b; }
+.bk-slots .bk-slot.selected { background: #c8a84b; color: #0d0d0d; border-color: #c8a84b; }
+
+/* ── Form ───────────────────────────────────────────────── */
+.bk-form { display: flex; flex-direction: column; gap: 14px; }
+.bk-field label {
+  display: block; font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,0.7); margin-bottom: 5px;
+}
+.bk-field input, .bk-field select {
+  width: 100%; padding: 11px 13px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+  color: #fff; font-size: 14px; font-family: inherit;
+  border-radius: 9px; outline: none;
+  transition: border 0.15s;
+}
+.bk-field input:focus, .bk-field select:focus { border-color: #c8a84b; }
+.bk-field input::placeholder { color: rgba(255,255,255,0.3); }
+
+.bk-summary {
+  background: linear-gradient(135deg, rgba(200,168,75,0.12), rgba(200,168,75,0.03));
+  border: 1px solid rgba(200,168,75,0.25);
+  border-radius: 10px; padding: 12px 14px;
+  font-size: 13px; color: #c8a84b; font-weight: 600;
+}
+.bk-summary span { color: #fff; }
+
+.bk-submit {
+  width: 100%; padding: 14px 20px;
+  background: #c8a84b; color: #0d0d0d;
+  font-weight: 800; font-size: 15px; letter-spacing: 0.02em;
+  border: none; border-radius: 11px; cursor: pointer;
+  transition: all 0.15s;
+}
+.bk-submit:hover:not(:disabled) { background: #d6b864; transform: translateY(-1px); }
+.bk-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.bk-error {
+  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3);
+  color: #fca5a5; font-size: 13px;
+  padding: 10px 14px; border-radius: 9px; margin-bottom: 12px;
+}
+
+@media (max-width: 480px) {
+  .bk-slots { grid-template-columns: 1fr; }
+}
